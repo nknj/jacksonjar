@@ -108,7 +108,8 @@ def index():
         return redirect(url_for('home'))
     else:
         total_jackson_count = Donation.query.count()
-        total_user_count = Donation.query.group_by(Donation.user_id).count()
+        # TODO: change to Donation groupby on userid
+        total_user_count = User.query.count()
         return render_template(
             'index.html',
             total_jackson_count=total_jackson_count,
