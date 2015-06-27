@@ -12,7 +12,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 
 # Config
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SITE'] = 'https://connect.stripe.com'
 app.config['AUTHORIZE_URI'] = '/oauth/authorize'
@@ -36,15 +36,15 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     stripe_user_id = db.Column(db.String(50), unique=True)
     email = db.Column(db.String(254))
-    name = db.Column(db.String(50))  # display_name
-    phone = db.Column(db.String(10))  # support_phone
+    name = db.Column(db.String(50))
+    phone = db.Column(db.String(10))
 
-    url = db.Column(db.String(512))  # business_url
+    url = db.Column(db.String(512))
     country = db.Column(db.String(2))
-    currency = db.Column(db.String(3))  # default_currency
+    currency = db.Column(db.String(3))
 
     stripe_publishable_key = db.Column(db.String(50))
-    stripe_secret_key = db.Column(db.String(50))  # access_token
+    stripe_secret_key = db.Column(db.String(50))
     refresh_token = db.Column(db.String(100))
 
     donations = db.relationship('Donation', backref='user', lazy='dynamic')
@@ -55,6 +55,12 @@ class User(db.Model):
         self.stripe_publishable_key = stripe_publishable_key
         self.stripe_secret_key = stripe_secret_key
         self.refresh_token = refresh_token
+
+    def count_verbose(self):
+        if self.donations.count() == 1:
+            return '1 Jackson'
+        else:
+            return self.donations.count() + ' Jacksons'
 
     def __repr__(self):
         return '<User %r>' % self.stripe_user_id
@@ -96,7 +102,13 @@ def index():
     if g.user:
         return redirect(url_for('home'))
     else:
-        return render_template('index.html')
+        total_jackson_count = Donation.query.count()
+        total_user_count = Donation.query.group_by(Donation.user_id).count()
+        return render_template(
+            'index.html',
+            total_jackson_count=total_jackson_count,
+            total_user_count=total_user_count
+        )
 
 
 @app.route('/home')

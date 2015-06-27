@@ -1,0 +1,241 @@
+/* Sinkin Sans */
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-200xlight-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-200xlight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-200xlight-webfont.svg#sinkin_sans200_x_light') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-200xlight-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-200xlight-webfont.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-300light-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-300light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-300light-webfont.svg#sinkin_sans300_light') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-300light-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-300light-webfont.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-100thinitalic-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-100thinitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-100thinitalic-webfont.svg#sinkin_sans100_thin_italic') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-100thinitalic-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-100thinitalic-webfont.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-400italic-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-400italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-400italic-webfont.svg#sinkin_sans400_italic') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-400italic-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-400italic-webfont.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-100thin-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-100thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-100thin-webfont.svg#sinkin_sans100_thin') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-100thin-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-100thin-webfont.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-500medium-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-500medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-500medium-webfont.svg#sinkin_sans500_medium') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-500medium-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-500medium-webfont.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-300lightitalic-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-300lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-300lightitalic-webfont.svg#sinkin_sans300_light_italic') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-300lightitalic-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-300lightitalic-webfont.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-400regular-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-400regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-400regular-webfont.svg#sinkin_sans400_regular') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-400regular-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-400regular-webfont.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-200xlightitalic-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-200xlightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-200xlightitalic-webfont.svg#sinkin_sans200_x_light_italic') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-200xlightitalic-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-200xlightitalic-webfont.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-800blackitalic-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-800blackitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-800blackitalic-webfont.svg#sinkin_sans800_black_italic') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-800blackitalic-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-800blackitalic-webfont.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-700bolditalic-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-700bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-700bolditalic-webfont.svg#sinkin_sans700_bold_italic') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-700bolditalic-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-700bolditalic-webfont.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-700bold-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-700bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-700bold-webfont.svg#sinkin_sans700_bold') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-700bold-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-700bold-webfont.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-600semibold-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-600semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-600semibold-webfont.svg#sinkin_sans600_semibold') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-600semibold-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-600semibold-webfont.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-900xblack-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-900xblack-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-900xblack-webfont.svg#sinkin_sans900_x_black') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-900xblack-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-900xblack-webfont.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-800black-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-800black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-800black-webfont.svg#sinkin_sans800_black') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-800black-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-800black-webfont.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-600semibolditali-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-600semibolditali-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-600semibolditali-webfont.svg#sinkin_sans600SBdIt') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-600semibolditali-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-600semibolditali-webfont.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-900xblackitalic-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-900xblackitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-900xblackitalic-webfont.svg#sinkin_sans900_x_black_italic') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-900xblackitalic-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-900xblackitalic-webfont.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'sinkin-sans';
+    src: url('/static/fonts/sinkin-sans/sinkinsans-500mediumitalic-webfont.eot');
+    src: url('/static/fonts/sinkin-sans/sinkinsans-500mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/sinkin-sans/sinkinsans-500mediumitalic-webfont.svg#sinkin_sans500_medium_italic') format('svg'),
+         url('/static/fonts/sinkin-sans/sinkinsans-500mediumitalic-webfont.woff') format('woff'),
+         url('/static/fonts/sinkin-sans/sinkinsans-500mediumitalic-webfont.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Bariol */
+
+@font-face {
+    font-family: 'bariol';
+    src: url('/static/fonts/bariol/bariol_regular.eot');
+    src: url('/static/fonts/bariol/bariol_regular.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/bariol/bariol_regular.svg') format('svg'),
+         url('/static/fonts/bariol/bariol_regular.woff') format('woff'),
+         url('/static/fonts/bariol/bariol_regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bariol';
+    src: url('/static/fonts/bariol/bariol_regular_italic.eot');
+    src: url('/static/fonts/bariol/bariol_regular_italic.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/bariol/bariol_regular_italic.svg') format('svg'),
+         url('/static/fonts/bariol/bariol_regular_italic.woff') format('woff'),
+         url('/static/fonts/bariol/bariol_regular_italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'bariol';
+    font-weight: normal;
+    font-style: normal;
+    src: url('/static/fonts/bariol/bariol_regular.svg') format('svg'),
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'bariol';
+    font-weight: normal;
+    font-style: italic;
+    src: url('/static/fonts/bariol/bariol_regular_italic.svg') format('svg'),
+  }
+}

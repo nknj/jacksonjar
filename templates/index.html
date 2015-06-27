@@ -1,6 +1,34 @@
 {% extends "layout.html" %}
 {% block content %}
-  <div>
-    <a href="/authorize">Connect with Stripe</a>
+  <div class="text-center index-container">
+    <img class="logo" src="/static/img/jar.png" alt="Jackson Jar Logo">
+    <h1>JacksonJar</h1>
+    <h3>The easiest way to collect $20 tips</h3>
+    <a href="/authorize">
+      <img class="button" src="/static/img/stripe-connect.png" alt="Stripe Connect Button">
+    </a>
+    <!-- <button class="tip-button">
+      <img src="/static/img/jar.png" alt="Jackson Jar" width=12>&nbsp;&nbsp;Jar that Jackson!
+    </button> -->
+  </div>
+  <div class="row feature-container text-center">
+    <div class="col-md-4">
+      <img src="/static/img/simple.png" alt="Simple">
+      <h3>Simple</h3>
+      <p>Create a <a href="https://stripe.com/" target="_blank">Stripe</a> account and get started <u>instantly</u></p>
+    </div>
+    <div class="col-md-4">
+      <img src="/static/img/affordable.png" alt="Affordable">
+      <h3>Affordable</h3>
+      <p>Out of each $20 bill, you keep $19.<br>Stripe keeps $0.88 and I keep $0.12</p>
+    </div>
+    <div class="col-md-4">
+      <img src="/static/img/secure.png" alt="Secure">
+      <h3>Secure</h3>
+      <p>All your financial data is handled by Stripe's world class <a href="https://stripe.com/us/features#seamless-security" target="_blank">security standards</a></p>
+    </div>
+  </div>
+  <div class="stats-container text-center">
+    <h4>We've already collected {{ total_jackson_count }} Jacksons for {{ total_user_count }} users!</h4>
   </div>
 {% endblock %}

@@ -1,17 +1,56 @@
-<!doctype html>
-  <head>
-    <title>{{ user.name }}'s Page</title>
-  </head>
-  <body>
-    <h1>Welcome {{ user.name }}</h1>
+{% extends "layout.html" %}
+{% block content %}
+  <div class="welcome-container text-center">
+    <h1>Hello, {{ user.name }}</h1>
 
-    <h3>Show Link to Jar and Button embed code</h3>
-    <h3>Show Stats</h3>
-    <h3>Change Username?</h3>
-    <h3>Delete Account</h3>
+    {% if user.donations.count() == 0 %}
+      <h4>You have no Jacksons in your jar yet :(</h4>
+    {% elif user.donations.count() == 1 %}
+      <h4>Sweet - You have <strong>1</strong> Jackson in your jar! <a href="/details">Details >></a></h4>
+    {% else %}
+      <h4>Woah - You've got <strong>{{ user.donations.count() }}</strong> Jacksons in your jar! <a href="/details">Details >></a></h4>
+    {% endif %}
+  </div>
 
-    <div>
-      <a href="/logout">Logout</a>
+  <div class="jar-container text-center">
+    <a href="/jar/{{ user.id }}" target="_blank">
+      <img class="logo" src="/static/img/jar.png" alt="Jackson Jar Logo">
+    </a>
+    <h3>Click on your <em>JacksonJar</em> to access it.</h3>
+  </div>
+
+  <div class="how-container text-center">
+    <dl>
+      <dt>Anyone can access your JacksonJar at:</dt>
+      <dd>
+        <code class="text-left">
+          <a href="/jar/{{ user.id }}">https://jacksonjar.herokuapp.com/jar/{{ user.id }}</a>
+        </code>
+      </dd>
+      <dt>You can also add it to your Markdown files using:</dt>
+      <dd>
+        <code class="text-left">
+          [![JacksonJar](https://jacksonjar.herokuapp.com/static/img/button.png)](https://jacksonjar.herokuapp.com/jar/{{ user.id }})
+        </code>
+      </dd>
+      <dt>Or embed it anywhere else using:</dt>
+      <dd>
+        <code class="text-left">
+          &lt;a href="https://jacksonjar.herokuapp.com/jar/{{ user.id }}" title="JacksonJar"&gt;&lt;img src="https://jacksonjar.herokuapp.com/static/img/button.png" alt="JacksonJar" /&gt;&lt;/a&gt;
+        </code>
+      </dd>
+    </dl>
+  </div>
+
+  <hr>
+  <footer>
+    <div class="row text-center">
+      <div class="col-md-6">
+        <p><a href="https://dashboard.stripe.com/account" target="_blank">Stripe Settings</a></p>
+      </div>
+      <div class="col-md-6">
+        <p><a href="/logout">Logout</a></p>
+      </div>
     </div>
-  </body>
-</html>
+  </footer>
+{% endblock %}
