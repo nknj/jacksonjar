@@ -178,7 +178,7 @@ def charge(user_id):
     db.session.add(donation)
     db.session.commit()
 
-    return redirect(url_for('thanks'))
+    return redirect(url_for('thanks', user_id=user.id))
 
 
 @app.route('/thanks/<int:user_id>')
