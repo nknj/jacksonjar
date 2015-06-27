@@ -1,17 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
-  <h1>Welcome to {{ user.name }}'s Jar</h1>
+  <div class="welcome-container text-center">
+    <h1>Welcome to {{ user.name }}'s Jar!</h1>
 
-  <form action="/charge/{{ user.id }}" method="post">
-    <article>
-      <label>
-        <span>Drop a Jackson in {{ user.name }}'s Jar</span>
-      </label>
-    </article>
+    {% if user.donations.count() == 1 %}
+      <h4>Sweet - {{ user.name }} has <strong>1</strong> Jackson in his jar!</h4>
+    {% elif user.donations.count() > 1 %}
+      <h4>Woah - {{ user.name }} has got <strong>{{ user.donations.count() }}</strong> Jacksons in his jar!</h4>
+    {% endif %}
+  </div>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="{{ key }}"
-            data-description="A Jackson for {{ user.name }}"
-            data-amount="2000"></script>
-  </form>
+  <div class="jar-container text-center">
+    <img class="logo" src="/static/img/jar.png" alt="Jackson Jar Logo">
+    <h3>Give $20 to {{ user.name }}</h3>
+    <form action="/charge/{{ user.id }}" method="post">
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="{{ key }}"
+              data-description="A Jackson for {{ user.name }}"
+              data-bitcoin="true"
+              data-amount="2000"></script>
+    </form>
+  </div>
 {% endblock %}

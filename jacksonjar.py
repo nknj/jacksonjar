@@ -9,7 +9,7 @@ import logging
 from datetime import datetime
 
 from flask import Flask, render_template, request,\
-    redirect, url_for, session, g
+    redirect, url_for, session, g, flash
 from flask.ext.sqlalchemy import SQLAlchemy
 
 
@@ -145,6 +145,7 @@ def jar(user_id):
 @app.route('/logout')
 def logout():
     session.pop('user_id', None)
+    flash('Logout Successful - See you soon!', 'info')
     return redirect(url_for('index'))
 
 
@@ -177,7 +178,19 @@ def charge(user_id):
     db.session.add(donation)
     db.session.commit()
 
-    return render_template('charge.html', amount=app.config['JACKSON_CENTS'])
+    return redirect(url_for('thanks'))
+
+
+@app.route('/thanks/<int:user_id>')
+def thanks(user_id):
+    # Get user for donation
+    # TODO: handle error if user not found
+    user = User.query.get(user_id)
+
+    return render_template(
+        'thanks.html',
+        user=user
+    )
 
 
 # oAuth

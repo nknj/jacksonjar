@@ -4,31 +4,57 @@
     <img class="logo" src="/static/img/jar.png" alt="Jackson Jar Logo">
     <h1>JacksonJar</h1>
     <h3>The easiest way to collect $20 tips</h3>
-    <a href="/authorize">
+    <a href="{{ url_for('authorize') }}">
       <img class="button" src="/static/img/stripe-connect.png" alt="Stripe Connect Button">
     </a>
-    <!-- <button class="tip-button">
-      <img src="/static/img/jar.png" alt="Jackson Jar" width=12>&nbsp;&nbsp;Jar that Jackson!
-    </button> -->
   </div>
+  <div class="row how-container text-center">
+    <h3>How it works</h3>
+    <h4><em>JacksonJar is powered by Stripe</em></h4>
+    <div class="col-md-offset-1 col-md-4 col-sm-6">
+      <h3>Step 1</h3>
+      <h4><em>Connect your Stripe Account</em></h4>
+      <p>
+        Create a Stripe account and connect it to JacksonJar by clicking the
+        blue button above. You will need to give Stripe your personal and bank
+        account data so that they can send you your Jacksons every week.
+      </p>
+    </div>
+    <div class="col-md-offset-2 col-md-4 col-sm-6">
+      <h3>Step 2</h3>
+      <h4><em>Share Away!</em></h4>
+      <p>
+        Once your Stripe account is connected, you'll get a link to your jar.
+        The link allows anyone with a credit card or Bitcoins to tip you $20.
+        Share the link on social media or embed it as a button in your
+        markdowns and websites.
+      </p>
+    </div>
+  </div>
+  <hr>
   <div class="row feature-container text-center">
-    <div class="col-md-4">
+    <div class="col-sm-4">
       <img src="/static/img/simple.png" alt="Simple">
       <h3>Simple</h3>
       <p>Create a <a href="https://stripe.com/" target="_blank">Stripe</a> account and get started <u>instantly</u></p>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-4">
       <img src="/static/img/affordable.png" alt="Affordable">
       <h3>Affordable</h3>
-      <p>Out of each $20 bill, you keep $19.<br>Stripe keeps $0.88 and I keep $0.12</p>
+      <p>Out of each $20 bill, <u>you keep $19</u>.<br>Stripe keeps $0.88 and I keep $0.12.</p>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-4">
       <img src="/static/img/secure.png" alt="Secure">
       <h3>Secure</h3>
-      <p>All your financial data is handled by Stripe's world class <a href="https://stripe.com/us/features#seamless-security" target="_blank">security standards</a></p>
+      <p>All your financial data is ONLY handled by Stripe's world class <a href="https://stripe.com/us/features#seamless-security" target="_blank">security standards</a></p>
     </div>
   </div>
   <div class="stats-container text-center">
-    <h4>We've already collected {{ total_jackson_count }} Jacksons for {{ total_user_count }} users!</h4>
+    <h4><em>JacksonJar has already collected {{ total_jackson_count }} Jacksons for {{ total_user_count }} users!</em></h4>
+    <a href="{{ url_for('authorize') }}">
+      <img class="button" src="/static/img/stripe-connect.png" alt="Stripe Connect Button">
+    </a>
+    <hr>
+    <h5>Brought to you with <3 by <a href="https://github.com/nknj" target="_blank">nknj</a></h5>
   </div>
 {% endblock %}

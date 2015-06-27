@@ -6,14 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>JacksonJar</title>
-  <link rel="stylesheet" href="static/vendor/css/bootstrap.min.css">
-  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="stylesheet" href="/static/vendor/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/main.css">
 
-  <script src="static/vendor/js/bootstrap.min.js"></script>
-  <script src="static/js/main.js"></script>
+  <script src="/static/vendor/js/jquery-2.1.4.min.js"></script>
+  <script src="/static/vendor/js/bootstrap.min.js"></script>
+  <script src="/static/js/main.js"></script>
 </head>
 <body>
   <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
     {% block content %}{% endblock %}
   </div>
 </body>
