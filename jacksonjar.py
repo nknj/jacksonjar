@@ -253,7 +253,7 @@ def callback():
     return redirect(url_for('home'))
 
 
-@app.route('/webhook')
+@app.route('/webhook', methods=['POST'])
 def webhook():
     print(request.data)
     return '{}', 200
