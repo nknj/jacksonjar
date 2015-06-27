@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
 import os
+import sys
 import stripe
 import urllib
 import requests
+import logging
 from datetime import datetime
 
 from flask import Flask, render_template, request,\
@@ -22,6 +24,9 @@ app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 app.config['PUBLISHABLE_KEY'] = os.environ['PUBLISHABLE_KEY']
 app.config['JACKSON_CENTS'] = 2000
 
+# Logging
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 # SQLAlchemy Init
 db = SQLAlchemy(app)
