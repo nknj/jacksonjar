@@ -255,7 +255,20 @@ def callback():
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    print(request.data)
+    if request.data.type == 'account.updated':
+        account = request.data.data.object
+        user = User.query.filter_by(stripe_user_id=account.id).first()
+        if user:
+            user.email = account.email
+            user.name = account.display_name
+            user.phone = account.support_phone
+            user.url = account.business_url
+            user.country = account.country
+            user.currency = account.default_currency
+
+            db.session.add(user)
+            db.session.commit()
+
     return '{}', 200
 
 # Run
