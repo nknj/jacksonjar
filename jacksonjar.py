@@ -252,6 +252,12 @@ def callback():
     # TODO: handle request and DB exceptions & show errors
     return redirect(url_for('home'))
 
+
+@app.route('/webhook')
+def webhook():
+    print(request.data)
+    return '{}', 200
+
 # Run
 if __name__ == '__main__':
     app.run(debug=True)

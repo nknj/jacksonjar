@@ -3,7 +3,7 @@
   <div class="welcome-container text-center">
     <h1>Hello, {{ user.name }}</h1>
     {% if not user.name %}
-    <p><em>Add a name in your <a href="https://dashboard.stripe.com/account">Stripe Settings</a></em></p>
+    <p><em>Add a name in your <a href="https://dashboard.stripe.com/account" target="_blank">Stripe Settings</a></em></p>
     {% endif %}
 
     {% if user.donations.count() == 1 %}
