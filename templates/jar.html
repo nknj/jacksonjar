@@ -1,0 +1,22 @@
+<!doctype html>
+  <head>
+    <title>{{ user.name }}'s Page</title>
+  </head>
+  <body>
+    <h1>Welcome to {{ user.name }}'s Jar</h1>
+
+    <form action="/charge/{{ user.id }}" method="post">
+      <article>
+        <label>
+          <span>Drop a Jackson in {{ user.name }}'s Jar</span>
+        </label>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="{{ key }}"
+              data-description="A Jackson for {{ user.name }}"
+              data-amount="2000"></script>
+    </form>
+
+  </body>
+</html>
