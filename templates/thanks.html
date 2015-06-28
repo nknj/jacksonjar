@@ -1,10 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
-
   <div class="jar-container text-center">
     <img class="thanks" src="/static/img/thanks.png" alt="Thank you!">
     <h3>Thank you!</h3>
-    <h4>You have sent $20 to {{ user.name }}</h4>
-    <p>Click <a href="{{ url_for('jar', user_id=user.id) }}">here</a> to go back to {{ user.name }}'s jar</p>
+    {% if user %}
+      <h4>You have sent $20 to {{ user.name }}</h4>
+      <p>Click <a href="{{ url_for('jar', user_id=user.id) }}">here</a> to go back to {{ user.name }}'s jar</p>
+    {% else %}
+      <h4>Your transaction was successful</h4>
+    {% endif %}
   </div>
 {% endblock %}

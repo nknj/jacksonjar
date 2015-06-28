@@ -31,7 +31,6 @@ app.logger.setLevel(logging.ERROR)
 # SQLAlchemy Init
 db = SQLAlchemy(app)
 
-
 # Stripe Init
 stripe.api_key = app.config['SECRET_KEY']
 
@@ -131,15 +130,18 @@ def home():
 
 @app.route('/jar/<int:user_id>')
 def jar(user_id):
-    # Get user for donation
-    # TODO: handle error if user not found
     user = User.query.get(user_id)
-
-    return render_template(
-        'jar.html',
-        user=user,
-        key=app.config['PUBLISHABLE_KEY']
-    )
+    if user:
+        return render_template(
+            'jar.html',
+            user=user,
+            key=app.config['PUBLISHABLE_KEY']
+        )
+    else:
+        return render_template(
+            '404.html',
+            error='This Jar doesn\'t exist!'
+        ), 404
 
 
 @app.route('/logout')
@@ -183,10 +185,9 @@ def charge(user_id):
 
 @app.route('/thanks/<int:user_id>')
 def thanks(user_id):
-    # Get user for donation
-    # TODO: handle error if user not found
     user = User.query.get(user_id)
 
+    # User is optional in template
     return render_template(
         'thanks.html',
         user=user
@@ -221,41 +222,43 @@ def callback():
     # Make /oauth/token endpoint POST request
     url = app.config['SITE'] + app.config['TOKEN_URI']
     resp = requests.post(url, params=data)
+    data = resp.json()
 
     # Save successful response as user
-    # TODO: handle unsuccessful response
-    user = User.query.filter_by(
-        stripe_user_id=resp.json().get('stripe_user_id')).first()
-    if not user:
-        user = User(
-            stripe_user_id=resp.json().get('stripe_user_id'),
-            stripe_publishable_key=resp.json().get('stripe_publishable_key'),
-            stripe_secret_key=resp.json().get('access_token'),
-            refresh_token=resp.json().get('refresh_token')
-        )
+    if not data.get('error'):
+        user = User.query.filter_by(
+            stripe_user_id=data.get('stripe_user_id')).first()
+        if not user:
+            user = User(
+                stripe_user_id=data.get('stripe_user_id'),
+                stripe_publishable_key=data.get('stripe_publishable_key'),
+                stripe_secret_key=data.get('access_token'),
+                refresh_token=data.get('refresh_token')
+            )
 
-    # Add/update additional data on user
-    account = stripe.Account.retrieve(id=resp.json().get('stripe_user_id'))
-    user.email = account.email
-    user.name = account.display_name
-    user.phone = account.support_phone
-    user.url = account.business_url
-    user.country = account.country
-    user.currency = account.default_currency
+        # Add/update additional data on user
+        account = stripe.Account.retrieve(id=data.get('stripe_user_id'))
+        user.email = account.email
+        user.name = account.display_name
+        user.phone = account.support_phone
+        user.url = account.business_url
+        user.country = account.country
+        user.currency = account.default_currency
 
-    db.session.add(user)
-    db.session.commit()
+        db.session.add(user)
+        db.session.commit()
 
-    # Log user in
-    session['user_id'] = user.id
+        # Log user in
+        session['user_id'] = user.id
+    else:
+        flash('Stripe connection failed - please try again', 'warning')
 
-    # TODO: handle request and DB exceptions & show errors
     return redirect(url_for('home'))
 
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    if request.data.type == 'account.updated':
+    if request.data and request.data.type == 'account.updated':
         account = request.data.data.object
         user = User.query.filter_by(stripe_user_id=account.id).first()
         if user:
@@ -269,7 +272,13 @@ def webhook():
             db.session.add(user)
             db.session.commit()
 
-    return '{}', 200
+    return ''
+
+
+# Errors
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 # Run
 if __name__ == '__main__':

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="text-center index-container">
+  <img class="logo" src="/static/img/404.png" alt="Page not found">
+  <h1>Page not found</h1>
+  {% if error %}
+    <h3><em>{{ error }}</em></h3>
+  {% endif %}
+  <p>Click <a href="/">here</a> to go to the main page</p>
+</div>
+{% endblock %}
