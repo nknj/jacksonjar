@@ -2,11 +2,12 @@
 
 import os
 import sys
-import stripe
 import urllib
-import requests
 import logging
 from datetime import datetime
+
+import stripe
+import requests
 
 from flask import Flask, render_template, request,\
     redirect, url_for, session, g, flash
@@ -99,7 +100,6 @@ def before_request():
 
 
 # Routes
-
 # Basic
 @app.route('/')
 def index():
@@ -122,6 +122,17 @@ def home():
             'home.html',
             user=g.user,
             key=app.config['PUBLISHABLE_KEY']
+        )
+    else:
+        return redirect(url_for('index'))
+
+
+@app.route('/details')
+def details():
+    if g.user:
+        return render_template(
+            'details.html',
+            user=g.user
         )
     else:
         return redirect(url_for('index'))
@@ -283,10 +294,35 @@ def webhook():
     return ''
 
 
-# Errors
+# Error Handlers
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+
+# Util
+def prettydate(d):
+    diff = datetime.utcnow() - d
+    s = diff.seconds
+    if diff.days > 7 or diff.days < 0:
+        return d.strftime('%d %b %y')
+    elif diff.days == 1:
+        return '1 day ago'
+    elif diff.days > 1:
+        return '{} days ago'.format(diff.days)
+    elif s <= 1:
+        return 'just now'
+    elif s < 60:
+        return '{} seconds ago'.format(s)
+    elif s < 120:
+        return '1 minute ago'
+    elif s < 3600:
+        return '{} minutes ago'.format(round(s/60))
+    elif s < 7200:
+        return '1 hour ago'
+    else:
+        return '{} hours ago'.format(round(s/3600))
+app.jinja_env.globals.update(prettydate=prettydate)
 
 # Run
 if __name__ == '__main__':

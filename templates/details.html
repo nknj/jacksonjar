@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="welcome-container text-center">
+    {% if user.donations.count() == 0 %}
+      <h4>You have <strong>no</strong> Jacksons in your jar yet.</h4>
+    {% elif user.donations.count() == 1 %}
+      <h4>You have <strong>1</strong> Jackson in your jar!</h4>
+    {% else %}
+      <h4>You have <strong>{{ user.donations.count() }}</strong>  Jacksons in your jar!</h4>
+    {% endif %}
+  </div>
+
+  <div class="jar-container text-center">
+    <a href="{{ url_for('jar', user_id=user.id) }}" target="_blank">
+      <img class="logo" src="/static/img/jar.png" alt="Jackson Jar Logo">
+    </a>
+  </div>
+
+  <div class="row how-container">
+    <div class="col-md-offset-2 col-md-8">
+      <table class="table table-responsive">
+        <caption>Transaction Details</caption>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Time (UTC)</th>
+            <th>From</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for donation in user.donations %}
+            <tr>
+              <th scope="row">{{ donation.id }}</th>
+              <td>{{ prettydate(donation.time) }}</td>
+              <td>{{ donation.donator_email }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="text-center">
+        <p>Back to jar <a href="{{ url_for('home') }}">details</a></p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <footer>
+    <div class="row text-center">
+      <div class="col-md-6">
+        <p><a href="https://dashboard.stripe.com/account" target="_blank">Stripe Settings</a></p>
+      </div>
+      <div class="col-md-6">
+        <p><a href="{{ url_for('logout') }}">Logout</a></p>
+      </div>
+    </div>
+  </footer>
+{% endblock %}
