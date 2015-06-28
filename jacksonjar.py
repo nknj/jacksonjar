@@ -251,7 +251,8 @@ def callback():
         # Log user in
         session['user_id'] = user.id
     else:
-        flash('Stripe connection failed - please try again', 'warning')
+        flash('Stripe connection failed - please try again [' +
+              data.get('error') + ']', 'warning')
 
     return redirect(url_for('home'))
 
