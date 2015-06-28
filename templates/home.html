@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
   <div class="welcome-container text-center">
-    <h1>Hello, {{ user.name }}</h1>
     {% if not user.name %}
-    <p><em>Add a name in your <a href="https://dashboard.stripe.com/account" target="_blank">Stripe Settings</a></em></p>
+      <h1>Hello!</h1>
+      <p><em>Please add a name in your <a href="https://dashboard.stripe.com/account" target="_blank">Stripe Settings</a></em></p>
+    {% else %}
+      <h1>Hello, {{ user.name }}</h1>
     {% endif %}
 
     {% if user.donations.count() == 1 %}
