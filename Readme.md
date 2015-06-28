@@ -29,3 +29,18 @@ Try tipping using:
 -	Any CVC
 
 You can also try creating your own Jar by going to https://jacksonjar.herokuapp.com, clicking `Connect with Stripe` and using test data from [here](https://stripe.com/docs/testing).
+
+Sreenshots
+----------
+
+Home page after Login:  
+[![Home](https://jacksonjar.herokuapp.com/static/img/readme/home.png)
+
+Transaction details page:  
+[![Details](https://jacksonjar.herokuapp.com/static/img/readme/details.png)
+
+Jar (Tipping) page:  
+[![Jar](https://jacksonjar.herokuapp.com/static/img/readme/jar.png)
+
+Thanks page:  
+[![Thanks](https://jacksonjar.herokuapp.com/static/img/readme/thanks.png)
