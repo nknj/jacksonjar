@@ -107,8 +107,7 @@ def index():
         return redirect(url_for('home'))
     else:
         total_jackson_count = Donation.query.count()
-        # TODO: change to Donation groupby on userid
-        total_user_count = User.query.count()
+        total_user_count = Donation.query.distinct(Donation.user_id).count()
         return render_template(
             'index.html',
             total_jackson_count=total_jackson_count,
@@ -154,33 +153,41 @@ def logout():
 # Charge Card
 @app.route('/charge/<int:user_id>', methods=['POST'])
 def charge(user_id):
-    # Get user for donation
-    # TODO: handle error if user not found
     user = User.query.get(user_id)
+    if user:
+        token = request.form['stripeToken']
+        donator_email = request.form['stripeEmail']
 
-    token = request.form['stripeToken']
-    donator_email = request.form['stripeEmail']
+        # Charge the card and save the donation
+        try:
+            charge = stripe.Charge.create(
+                source=token,
+                amount=app.config['JACKSON_CENTS'],
+                currency='usd',
+                description='Jackson for ' + user.stripe_user_id +
+                            ' by ' + donator_email,
+                destination=user.stripe_user_id,
+                application_fee=100
+            )
+        except stripe.error.CardError as e:
+            flash('Your card was declined.', 'error')
+            return redirect(url_for('jar', user_id=user.id))
 
-    # Charge the card and save the donation
-    # TODO: handle case when charge fails
-    charge = stripe.Charge.create(
-        source=token,
-        amount=app.config['JACKSON_CENTS'],
-        currency='usd',
-        description='Jackson for ' + user.stripe_user_id +
-                    ' by ' + donator_email,
-        destination=user.stripe_user_id,
-        application_fee=100
-    )
-    donation = Donation(
-        stripe_charge_id=charge.id,
-        user_id=user.id,
-        donator_email=donator_email
-    )
-    db.session.add(donation)
-    db.session.commit()
+        donation = Donation(
+            stripe_charge_id=charge.id,
+            user_id=user.id,
+            donator_email=donator_email
+        )
 
-    return redirect(url_for('thanks', user_id=user.id))
+        db.session.add(donation)
+        db.session.commit()
+
+        return redirect(url_for('thanks', user_id=user.id))
+    else:
+        return render_template(
+            '404.html',
+            error='Charge unsuccessful - jar doesn\'t exist!'
+        ), 404
 
 
 @app.route('/thanks/<int:user_id>')
