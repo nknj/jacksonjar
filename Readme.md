@@ -35,21 +35,23 @@ Try creating your own Jar by connecting your Stripe account on the [home](https:
 Sreenshots
 ----------
 
-The JacksonJar Button can be embedded on any website:  
-![JacksonJar](https://jacksonjar.herokuapp.com/static/img/button.png)
+**The JacksonJar Button can be embedded on any website:**  
+![JacksonJar](https://jacksonjar.herokuapp.com/static/img/button.png)  
 
-Home page: ![Index](https://jacksonjar.herokuapp.com/static/readme/index.png)
+**Home page:**  
+![Index](https://jacksonjar.herokuapp.com/static/readme/index.png)  
 
-Your jar details after login:  
-![Home](https://jacksonjar.herokuapp.com/static/readme/home.png)
+**Your jar details after login:**  
+![Home](https://jacksonjar.herokuapp.com/static/readme/home.png)  
 
-Your transaction details:  
-![Details](https://jacksonjar.herokuapp.com/static/readme/details.png)
+**Your transaction details:**  
+![Details](https://jacksonjar.herokuapp.com/static/readme/details.png)  
 
-Jar (Tipping) page:  
-![Jar](https://jacksonjar.herokuapp.com/static/readme/jar.png)
+**Jar (Tipping) page:**  
+![Jar](https://jacksonjar.herokuapp.com/static/readme/jar.png)  
 
-All financial data handled by Stripe: ![Stripe](https://jacksonjar.herokuapp.com/static/readme/stripe.png)
+**All financial data handled by Stripe:**  
+![Stripe](https://jacksonjar.herokuapp.com/static/readme/stripe.png)  
 
-Thanks page:  
-![Thanks](https://jacksonjar.herokuapp.com/static/readme/thanks.png)
+**Thanks page:**  
+![Thanks](https://jacksonjar.herokuapp.com/static/readme/thanks.png)  
