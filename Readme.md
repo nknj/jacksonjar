@@ -33,14 +33,16 @@ You can also try creating your own Jar by going to https://jacksonjar.herokuapp.
 Sreenshots
 ----------
 
+JacksonJar Button: ![JacksonJar](https://jacksonjar.herokuapp.com/static/img/button.png)
+
 Home page after Login:  
-[![Home](https://jacksonjar.herokuapp.com/static/img/readme/home.png)
+![Home](https://jacksonjar.herokuapp.com/static/readme/home.png)
 
 Transaction details page:  
-[![Details](https://jacksonjar.herokuapp.com/static/img/readme/details.png)
+![Details](https://jacksonjar.herokuapp.com/static/readme/details.png)
 
 Jar (Tipping) page:  
-[![Jar](https://jacksonjar.herokuapp.com/static/img/readme/jar.png)
+![Jar](https://jacksonjar.herokuapp.com/static/readme/jar.png)
 
 Thanks page:  
-[![Thanks](https://jacksonjar.herokuapp.com/static/img/readme/thanks.png)
+![Thanks](https://jacksonjar.herokuapp.com/static/readme/thanks.png)
